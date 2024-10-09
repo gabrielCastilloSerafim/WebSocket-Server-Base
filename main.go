@@ -8,9 +8,7 @@ import (
 )
 
 func main() {
-	server := Server{
-		connections: make(map[string]*websocket.Conn),
-	}
+	server := NewServer()
 	http.Handle("/", websocket.Handler(server.stablishWSConnection))
 	port := "1337"
 	fmt.Printf("🌎 Server listening on port: %s 🌎\n", port)
