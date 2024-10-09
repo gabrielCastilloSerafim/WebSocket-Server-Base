@@ -1,8 +1,10 @@
 package main
 
-import "golang.org/x/net/websocket"
+import (
+	"golang.org/x/net/websocket"
+)
 
-func (server *Server) sendJSON(destinationConnection *websocket.Conn, destinationConnectionId string, responseMessage ResponseMessage) {
+func (server *Server) sendJSON(destinationConnection *websocket.Conn, destinationConnectionId string, responseMessage interface{}) {
 	err := websocket.JSON.Send(destinationConnection, responseMessage)
 	if err != nil {
 		server.Lock()

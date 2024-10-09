@@ -17,3 +17,7 @@ type ResponseMessage struct {
 	SenderId string `json:"senderId"`
 	Content  string `json:"content"`
 }
+
+type Ping struct {
+	KeepAlive bool `json:"keepAlive"`
+}
